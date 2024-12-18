@@ -1,0 +1,174 @@
+<div class="container my-5">
+    <div *ngIf="showCompanyForm" class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Create Company</h3>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmitCompany()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="companyName" class="form-label">Company Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="companyName"
+              [(ngModel)]="company.companyName"
+              name="companyName"
+              placeholder="Enter company name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="companyDescription" class="form-label">Company Description</label>
+            <textarea
+              class="form-control"
+              id="companyDescription"
+              [(ngModel)]="company.companyDescription"
+              name="companyDescription"
+              rows="3"
+              placeholder="Describe the company"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Contact Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="contactEmail"
+              [(ngModel)]="company.contactEmail"
+              name="contactEmail"
+              placeholder="Enter contact email"
+              required
+            />
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Create Company</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <div *ngIf="!showCompanyForm" class="card shadow-sm mt-5">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Create Job</h3>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmitJob()" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="title" class="form-label">Job Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              [(ngModel)]="job.title"
+              name="title"
+              placeholder="Enter job title"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Job Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              [(ngModel)]="job.description"
+              name="description"
+              rows="3"
+              placeholder="Describe the job"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Job Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="location"
+              [(ngModel)]="job.location"
+              name="location"
+              placeholder="Enter job location"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="jobType" class="form-label">Job Type</label>
+            <select
+              class="form-control"
+              id="jobType"
+              [(ngModel)]="job.jobType"
+              name="jobType"
+              required
+            >
+              <option value="">Select job type</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+            </select>
+          </div>
+          
+        
+          <div class="mb-3">
+            <label for="qualifications" class="form-label">Qualifications</label>
+            <textarea
+              class="form-control"
+              id="qualifications"
+              [(ngModel)]="job.qualifications"
+              name="qualifications"
+              rows="2"
+              placeholder="Enter required qualifications"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="skills" class="form-label">Skills</label>
+            <textarea
+              class="form-control"
+              id="skills"
+              [(ngModel)]="job.skills"
+              name="skills"
+              rows="2"
+              placeholder="Enter required skills"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input
+              type="number"
+              class="form-control"
+              id="salary"
+              [(ngModel)]="job.salary"
+              name="salary"
+              placeholder="Enter salary amount"
+              required
+            />
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Post Job</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

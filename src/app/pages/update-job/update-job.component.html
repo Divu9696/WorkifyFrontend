@@ -1,0 +1,54 @@
+<div class="container">
+    <h2 class="page-title">Update Job</h2>
+  
+    <!-- Loading Indicator -->
+    <div *ngIf="isLoading" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Updating...</p>
+    </div>
+  
+    <!-- Job Update Form -->
+    <form [formGroup]="jobForm" (ngSubmit)="updateJob()" class="job-form">
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input id="title" formControlName="title" class="form-control" placeholder="Job Title" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control" placeholder="Description" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" class="form-control" placeholder="Location" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="jobType">Job Type</label>
+        <input id="jobType" formControlName="jobType" class="form-control" placeholder="Job Type" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="qualifications">Qualifications</label>
+        <input id="qualifications" formControlName="qualifications" class="form-control" placeholder="Qualifications" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="skills">Skills</label>
+        <input id="skills" formControlName="skills" class="form-control" placeholder="Skills" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input id="salary" type="number" formControlName="salary" class="form-control" placeholder="Salary" required min="0" />
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="jobForm.invalid || isLoading">
+          <span *ngIf="isLoading" class="btn-spinner"></span> Update Job
+        </button>
+      </div>
+    </form>
+  </div>
+  

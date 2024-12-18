@@ -1,0 +1,207 @@
+
+
+
+ <div class="container-fluid body-background">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-8 job">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-8">
+                <h6 style="margin-bottom: 0; font-size: 1.4rem;">{{ jobObj?.title }}</h6>
+                <a>{{ jobObj?.companyName }}</a>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-4">
+                <i class="fa fa-suitcase" aria-hidden="true"></i> {{ jobObj?.skills }}
+              </div>
+              <div class="col-4">
+                <i class="fa fa-inr" aria-hidden="true"></i> {{ jobObj?.salary }}
+              </div>
+              <div class="col-4">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ jobObj?.location }}
+              </div>
+            </div>
+            <hr />
+
+            <div class="row pt-1">
+              <div class="col-3">
+                <small>Posted: {{ jobObj?.createdAt | date:'mediumDate' }}</small>
+              </div>
+
+              <div class="col-7 text-end">
+                <button *ngIf="isLoggedIn && !jobSeekerId && userInfo?.role != 'Employer'" class="btn btn-outline-primary round-button mx-2" type="button" (click)="toggleApplicationForm()">Add Profile</button>
+                <button *ngIf="isLoggedIn && jobSeekerId && userInfo?.role!='Employer'" class="btn btn-outline-secondary round-button mx-2" type="button">Profile Exists</button>
+
+                <button *ngIf="isLoggedIn  && userInfo?.role !='Employer'" class="btn btn-outline-primary round-button mx-2" type="button" (click)="applyForJob()">Apply</button>
+                <button *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-primary round-button" type="button">
+                  Login To Apply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5>Job Description</h5>
+                <div class="p-2">
+                  <p>{{ jobObj?.description }}</p>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h5>Qualifications</h5>
+                <div class="p-2">
+                  <p>{{ jobObj?.qualifications }}</p>
+                </div>
+              </div>
+
+              <div class="p-2">
+                <h5>Job Type</h5>
+                <div> <p>{{ jobObj?.jobType }}</p>
+                </div>
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isLoggedIn && userInfo?.role !='Employer'" class="application-form" [class.show]="showApplicationForm">
+        <h5 class="text-center">Create Profile</h5>
+        <form [formGroup]="applicationForm" (ngSubmit)="submitProfile()">
+          <div class="mb-3">
+            <label>Full Name</label>
+            <input type="text" class="form-control" formControlName="FullName" />
+          </div>
+          <div class="mb-3">
+            <label>Contact Number</label>
+            <input type="tel" class="form-control" formControlName="ContactNumber" />
+          </div>
+          <div class="mb-3">
+            <label>Education</label>
+            <input type="text" class="form-control" formControlName="Education" />
+          </div>
+          <div class="mb-3">
+            <label>Skills</label>
+            <input type="text" class="form-control" formControlName="Skills" />
+          </div>
+          <div class="mb-3">
+            <label>Resume</label>
+            <input type="file" class="form-control" (change)="onFileSelected($event)" />
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="toggleApplicationForm()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+  <div class="container-fluid body-background">
+    <div class="container pt-5">
+      <div class="row">
+        <-- Job Details Card -->
+        <!-- <div class="col-8 job">
+          <div class="card">
+            <div class="card-body"> -->
+              <!-- Job Title and Company -->
+              <!-- <h6>{{ jobObj?.title }}</h6>
+              <a>{{ jobObj?.companyName }}</a> -->
+  
+              <!-- Job Attributes -->
+              <!-- <div class="row mt-3">
+                <div class="col-4"><i class="fa fa-suitcase"></i> {{ jobObj?.skills }}</div>
+                <div class="col-4"><i class="fa fa-inr"></i> {{ jobObj?.salary }}</div>
+                <div class="col-4"><i class="fa fa-map-marker"></i> {{ jobObj?.location }}</div>
+              </div>
+  
+              <hr /> -->
+  
+              <!-- Action Buttons -->
+              <!-- <div class="row pt-1">
+                <div class="col-3"><small>Posted: {{ jobObj?.createdAt | date:'mediumDate' }}</small></div>
+                <div class="col-7 text-end">
+                  <button *ngIf="isLoggedIn" class="btn btn-outline-primary mx-2" (click)="toggleApplicationForm()">Apply</button>
+                  <button *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-primary">Login To Apply</button>
+                  <button *ngIf="isLoggedIn && !jobSeekerId" class="btn btn-success mx-2" (click)="toggleProfileForm()">Create Profile</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+  
+        <!-- Slide-in Application Form -->
+        <!-- <div class="application-form" [class.show]="showApplicationForm">
+          <form [formGroup]="applicationForm" (ngSubmit)="submitApplication()">
+            <h5>Apply for Job</h5>
+            <div class="mb-3">
+              <label>Job Seeker ID</label>
+              <input type="text" class="form-control" formControlName="JobSeekerId" readonly />
+            </div>
+            <div class="mb-3">
+              <label>Job ID</label>
+              <input type="text" class="form-control" [value]="activeJobId" readonly />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+          </form>
+        </div> -->
+  
+        <!-- Slide-in Profile Form -->
+        <!-- <div class="profile-form" [class.show]="showProfileForm">
+          <form [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+            <h5>Create Profile</h5>
+            <div class="mb-3">
+              <label>Full Name</label>
+              <input type="text" class="form-control" formControlName="FullName" />
+            </div>
+            <div class="mb-3">
+              <label>Contact Number</label>
+              <input type="tel" class="form-control" formControlName="ContactNumber" />
+            </div>
+            <div class="mb-3">
+              <label>Education</label>
+              <input type="text" class="form-control" formControlName="Education" />
+            </div>
+            <div class="mb-3">
+              <label>Skills</label>
+              <input type="text" class="form-control" formControlName="Skills" />
+            </div>
+            <div class="mb-3">
+              <label>Resume</label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)" />
+            </div>
+            <button type="submit" class="btn btn-success">Save Profile</button>
+            <button type="button" class="btn btn-secondary" (click)="toggleProfileForm()">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->
+   -->

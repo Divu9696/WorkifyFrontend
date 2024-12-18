@@ -1,0 +1,442 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dceaf8;
+}
+
+.un_container{
+    width: auto;
+    margin: 0 auto;
+    padding:  50px;
+}
+
+/* Container background styling */
+.body-background {
+    background-color: #f7f7f7;
+    padding: 2rem;
+}
+
+/* Header section */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.header div {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Search input section */
+.Wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logoContainer img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.sugginput {
+    border: none;
+    padding: 0.5rem;
+    margin-right: 5px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.sugginput:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db;
+}
+
+.pipe1 {
+    width: 1px;
+    height: 25px;
+    background-color: #dcdcdc;
+    margin: 0 5px;
+}
+
+.search {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search:hover {
+    background-color: #2980b9;
+}
+
+/* Slider section */
+#Slidhsow-container {
+    padding: 1rem 0;
+}
+
+.moving-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    background-color: #f1eeee;
+    /* border: 1px solid #ddd; */
+    display: flex;
+    align-items: center;
+}
+
+/* .company-list {
+    display: flex;
+    position: absolute;
+    animation: moveLeft 15s linear infinite;
+} */
+.company-logo {
+    position: absolute;
+    left: -110px;
+    width: 100px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: slide 5s linear infinite;
+    margin: 10px;
+}
+
+.hired{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:20px 40px;
+}
+.dream{
+    color:#2980b9;
+    
+}
+.un_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    margin: 0 80px;
+}
+
+.caption h1 span {
+    color: #007bff;
+}
+
+.caption h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.caption p {
+    margin: 10px 0 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.explore button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.explore button:last-child {
+    background-color: #28a745;
+}
+
+.img img {
+    border-radius: 10px;
+}
+
+
+
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(100vw); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100px); /* Disappear off-screen to the left */
+    }
+}
+        .logo1 { background-image: url('https://img.naukimg.com/logo_images/groups/v2/226728.gif'); }
+        .logo2 { background-image: url('https://img.naukimg.com/logo_images/groups/v2/58550.gif'); }
+        .logo3 { background-image: url('https://img.naukimg.com/logo_images/groups/v2/1288.gif'); }
+        .logo4 { background-image: url('https://img.naukimg.com/logo_images/groups/v2/419316.gif'); }
+        .logo5 { background-image: url('https://img.naukimg.com/logo_images/groups/v2/226728.gif'); }
+        .logo5 { background-image: url('https://d8it4huxumps7.cloudfront.net/uploads/images/d2c-product/flipkart.png?d=195x70'); }
+
+
+/* Staggered animation delay for each logo */
+.logo1 { animation-delay: 0s;  }
+.logo2 { animation-delay: 1s;  }
+.logo3 { animation-delay: 2s;  }
+.logo4 { animation-delay: 3s;  }
+.logo5 { animation-delay: 4s;  }
+.logo6 { animation-delay: 5s;  }
+
+/* .logo5{
+    animation-delay: 4s;
+}
+.logo6{
+    animation-delay: 5s; 
+}
+.logo7{
+    animation-delay: 6s; 
+} */
+
+.top-companies{
+    margin-bottom: 50px;
+}
+
+#trendHead {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Slider styling */
+#main-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide .images img {
+    width: 50px;
+    margin-bottom: 0.5rem;
+}
+
+.slide h6 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.slide p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 0.5rem 0 0;
+}
+
+/* Featured companies section */
+.slide a .linkSpanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#Slidhsow-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .logoContainer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sugginput {
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    #main-slider {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slide {
+        width: 100%;
+    }
+}
+
+button{
+    background-color: red;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-style: none;
+    color: rgb(233, 227, 227);
+    box-shadow: 3px 3px 5px #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    /* transition: background-color 0.5s linear; */
+    animation-name: btn;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 2;
+    animation-fill-mode: both;
+    position: relative;
+    z-index: 1;
+    /* transition: background-color 0.5s ease ; */
+
+
+}
+
+button:before {
+    content: "";
+    background-color: #1f1f1f;
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left: 0px;
+    right: 0px;
+    transform: scaleX(0);
+    transition: 1s;
+    /* visibility: hidden;
+    transition-delay: 1s;
+    transition-timing-function: linear;
+    transition-duration: 2s; */
+    transform-origin: left;
+    z-index: -1;
+}
+
+/* yha pe before wala sara property apply ho gya */
+button:hover::before
+{
+    cursor: pointer;
+    transform: scale(1);
+}
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #f39c12;
+}
+
+.footer-section p, .footer-section a {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #f39c12;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    color: #ecf0f1;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #34495e;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #f39c12;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #bdc3c7;
+    border-top: 1px solid #34495e;
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

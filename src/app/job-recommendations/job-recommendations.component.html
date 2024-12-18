@@ -1,0 +1,18 @@
+<div *ngIf="jobRecommendations.length > 0; else noJobs">
+    <div *ngFor="let job of jobRecommendations" class="job-card-container">
+      <div class="job-card">
+        <h3>{{ job.title }}</h3>
+        <p>{{ job.description }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Salary:</strong> {{ job.salary }}</p>
+  
+        <!-- View Details button -->
+        <button [routerLink]="['/job-detail', job.id]" class="view-details-btn">View Details</button>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noJobs>
+    <p class="no-jobs-message">No job recommendations available.</p>
+  </ng-template>
+  

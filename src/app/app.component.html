@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-blue-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-size: 2rem; font-weight: bold;">Workify</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" style="font-size: 1.2rem;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/jobs" style="font-size: 1.2rem;">All Jobs</a>
+        </li>
+        
+        <!-- Employer-specific links -->
+        <li class="nav-item" *ngIf="authService.isEmployer()">
+          <a class="nav-link active" routerLink="/new-job" style="font-size: 1.2rem;">Create New Job</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isEmployer()">
+          <a class="nav-link active" routerLink="/job-listing" style="font-size: 1.2rem;">Your Posted Jobs</a>
+        </li>
+
+        <!-- Job Seeker-specific links -->
+        <li class="nav-item" *ngIf="authService.isJobSeeker()">
+          <a class="nav-link active" routerLink="/appliedjobs" style="font-size: 1.2rem;">Applied Jobs</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isJobSeeker()">
+          <a class="nav-link active" routerLink="/job-recommendations" style="font-size: 1.2rem;">Job Recommendations</a>
+        </li>
+        <!-- <li class="nav-item" *ngIf="authService.isJobSeeker()">
+          <a class="nav-link active" routerLink="/jobseeker-profile" style="font-size: 1.2rem;">JobSeeker Profile</a>
+        </li> -->
+      </ul>
+      <form class="d-flex">
+        <!-- Show Login and Register buttons if the user is not logged in -->
+        <button *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-success round-button mx-2" type="button">
+          Login
+        </button>
+        <button *ngIf="!isLoggedIn" routerLink="/register" class="btn btn-success round-button" type="button">
+          Register
+        </button>
+
+        <!-- Show user details and LogOff button if the user is logged in -->
+        <button *ngIf="isLoggedIn" class="btn btn-link" type="button" style="color: white; font-style: italic;">
+          {{userInfo.email}}
+        </button>
+
+        <button *ngIf="isLoggedIn" (click)="logoff()" routerLink="/home" class="btn btn-success round-button" type="button">
+          LogOff
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid body-background">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+

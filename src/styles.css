@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+.slide img {
+    height: auto;
+    width: auto;
+}
+.text {
+    text-align: center;
+}
+
+.compo_logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 14px; 
+}
+
+.job .card {
+    border-radius: 20px;
+}
+
+.filter .card {
+    border-radius: 10px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

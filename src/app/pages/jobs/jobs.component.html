@@ -1,0 +1,114 @@
+<div class="container-fluid pt-3">
+  <div class="row">
+    <!-- Left Sidebar for Filters -->
+    <div class="col-3 filter">
+      <div class="card">
+        <div class="card-body">
+          <!-- Filter Button -->
+          <button class="btn btn-success btn-block mb-3" style="border: 2px solid white;" (click)="toggleFilters()">
+            {{ showFilters ? 'Hide Filters' : 'Filters' }}
+            <i class="dropdown-icon"></i> <!-- Icon for dropdown arrow -->
+          </button>
+          
+          <!-- Filter Form (Visible based on showFilters flag) -->
+          <div *ngIf="showFilters" class="filter-form">
+            <form [formGroup]="filterForm" (ngSubmit)="applyFilter()">
+              <!-- Title Filter -->
+              <div class="form-group">
+                <label for="title" >Title</label>
+                <input type="text" id="title" class="form-control" formControlName="title" />
+              </div>
+              <!-- Location Filter -->
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" class="form-control" formControlName="location" />
+              </div>
+              <!-- MinSalary Filter -->
+              <div class="form-group">
+                <label for="minSalary">Min Salary</label>
+                <input type="number" id="minSalary" class="form-control" formControlName="minSalary" />
+              </div>
+              <!-- JobType Filter -->
+              <div class="form-group">
+                <label for="jobType">Job Type</label>
+                <input type="text" id="jobType" class="form-control" formControlName="jobType" />
+              </div>
+              <!-- Skills Filter -->
+              <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" id="skills" class="form-control" formControlName="skills" />
+              </div>
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-dark btn-block mt-3">Apply Filters</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Column for Job Listings -->
+    <div class="col-9 job">
+      <div class="row pt-2" *ngFor="let job of jobList">
+        <div class="col-12">
+          <div class="card job-card">
+            <div class="card-body">
+              <!-- Job Header -->
+              <div class="row" (click)="openJob(job.id)">
+                <div class="col-12">
+                  <h5 class="job-title">{{ job.title }}</h5>
+                  <small class="company-name">{{ job.companyName }}</small>
+                </div>
+              </div>
+
+              <!-- Job Details -->
+              <div class="row pt-2">
+                <div class="col-4">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{ job.jobType }}
+                </div>
+                <div class="col-4">
+                  <i class="fa fa-inr" aria-hidden="true"></i> ₹{{ job.salary }}
+                </div>
+                <div class="col-4">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> {{ job.location }}
+                </div>
+              </div>
+
+              <!-- Job Description -->
+              <div class="row pt-2">
+                <div class="col-12">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  <span class="text-muted">{{ job.description | slice: 0:50 }}...</span>
+                </div>
+              </div>
+
+              <!-- Job Qualifications -->
+              <div class="row pt-2">
+                <div class="col-12">
+                  <strong>Qualifications:</strong>
+                  <span>{{ job.qualifications }}</span>
+                </div>
+              </div>
+
+              <!-- Job Required Skills -->
+              <div class="row pt-2">
+                <div class="col-12">
+                  <strong>Required Skills:</strong>
+                  <span>{{ job.skills }}</span>
+                </div>
+              </div>
+
+              <!-- Footer Row -->
+              <div class="row pt-3">
+                <div class="col-6">
+                  <small class="bookmark-icon">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

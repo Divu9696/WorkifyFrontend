@@ -1,0 +1,136 @@
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+  }
+  
+  /* Loading Overlay */
+  .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-text {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* Form Styling */
+  .job-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .btn-spinner {
+    margin-right: 10px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.5s linear infinite;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+    }
+  }
+  

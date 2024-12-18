@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr class="header-row">
+          <th>Sr No</th>
+          <th>Company</th>
+          <th>Job Title</th>
+          <th>Salary</th>
+          <th>Skills</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobList; let sr = index">
+          <td colspan="7">
+            <div class="row">
+              <div class="col">{{ sr + 1 }}</div>
+              <div class="col">{{ job.companyName }}</div>
+              <div class="col">{{ job.title }}</div>
+              <div class="col">{{ job.salary }}</div>
+              <div class="col">{{ job.skills }}</div>
+              <div class="col">{{ job.location }}</div>
+              <div class="col">
+                <button class="btn btn-success" (click)="openJobs(job)">Open</button>
+                <button class="btn btn-warning" (click)="updateJob(job.id)">Update</button>
+                <button class="btn btn-danger" (click)="deleteJob(job.id)">Delete</button>
+              </div>
+            </div>
+
+            <!-- Expanded Applications Panel -->
+            <div *ngIf="job.isExpanded" class="expanded-panel">
+              <div class="table-container bg-light">
+                <div class="row font-weight-bold">
+                  <div class="col">Sr No</div>
+                  <div class="col">Name</div>
+                  <div class="col">Contact Number</div>
+                  <div class="col">Skills</div>
+                  <div class="col">Applied Date</div>
+                  <div class="col">Resume</div>
+                  <div class="col">Status</div> <!-- New column for Status -->
+                  <div class="col">Actions</div> <!-- New column for Actions -->
+                </div>
+                <div class="row" *ngFor="let app of job.applications; let appIndex = index">
+                  <div class="col">{{ appIndex + 1 }}</div>
+                  <div class="col">{{ app.fullName }}</div>
+                  <div class="col">{{ app.contactNumber }}</div>
+                  <div class="col">{{ app.skills }}</div>
+                  <div class="col">{{ app.appliedAt | date: 'medium' }}</div>
+                  <!-- Resume Link -->
+                  <div class="col">
+                    <a *ngIf="app.resumeLink" [href]="app.resumeLink" target="_blank" download="Resume.pdf">
+                      Download Resume
+                    </a>
+                    <span *ngIf="!app.resumeLink" class="text-muted">No Resume</span>
+                  </div>
+                  <!-- Status -->
+                  <div class="col">
+                    <span [ngClass]="{
+                      'text-success': app.status === 'Approved',
+                      'text-danger': app.status === 'Rejected',
+                      'text-warning': app.status === 'Pending'
+                    }">
+                      {{ app.status }}
+                    </span>
+                  </div>
+                  <!-- Accept/Reject Buttons -->
+                  <div class="col">
+                    <button 
+                      class="btn btn-success btn-sm me-1" 
+                      [disabled]="app.status === 'Approved'" 
+                      (click)="updateApplicationStatus(app.id, 'Approved')">
+                      Accept
+                    </button>
+                    <button 
+                      class="btn btn-danger btn-sm" 
+                      [disabled]="app.status === 'Rejected'" 
+                      (click)="updateApplicationStatus(app.id, 'Rejected')">
+                      Reject
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!job.applications || job.applications.length === 0" class="row">
+                  <div class="col text-center text-muted">
+                    No applications found for this job.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Close Button -->
+              <div class="row mt-2">
+                <div class="col text-end">
+                  <button class="btn btn-danger" (click)="closeJobs(job)">Close</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

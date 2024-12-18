@@ -1,0 +1,129 @@
+/* Container for job cards */
+.job-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  /* Styling for each job card */
+  .job-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for job title */
+  .job-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  /* Styling for job description and other text */
+  .job-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  /* Styling for View Details button */
+  .view-details-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message when no jobs are available */
+  .no-jobs-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .job-card {
+      max-width: 100%;
+      padding: 15px;
+    }
+    .job-card h3 {
+      font-size: 1.3rem;
+    }
+    .view-details-btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  button{
+    background-color: red;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-style: none;
+    color: rgb(233, 227, 227);
+    box-shadow: 3px 3px 5px #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    /* transition: background-color 0.5s linear; */
+    animation-name: btn;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 2;
+    animation-fill-mode: both;
+    position: relative;
+    z-index: 1;
+    /* transition: background-color 0.5s ease ; */
+
+
+}
+
+button:before {
+    content: "";
+    background-color: #1f1f1f;
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left: 0px;
+    right: 0px;
+    transform: scaleX(0);
+    transition: 1s;
+    /* visibility: hidden;
+    transition-delay: 1s;
+    transition-timing-function: linear;
+    transition-duration: 2s; */
+    transform-origin: left;
+    z-index: -1;
+}
+
+/* yha pe before wala sara property apply ho gya */
+button:hover::before
+{
+    cursor: pointer;
+    transform: scale(1);
+}
+  
